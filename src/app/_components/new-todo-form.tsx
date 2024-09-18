@@ -39,7 +39,7 @@ export function NewToDoForm({onCreate } : ToDoFormProps) {
                 id="description" 
                 value={description} 
                 onChange={e => setDescription(e.target.value)}/>
-                <button type="submit">Add</button>
+                <button className="bg-blue-500 p-1 rounded text-white" type="submit">Add</button>
             </div>
         </form>
     )

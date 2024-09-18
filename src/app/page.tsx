@@ -34,6 +34,12 @@ export default function Home() {
             return newToDoList; 
             });
           }}
+          onRemove={() => {
+            setToDoList(prev => {
+            const newToDoList = [...prev].filter((_,i) => i !== index);
+            return newToDoList;
+          });
+}}
         />
       ))}
           
@@ -49,20 +55,27 @@ export default function Home() {
   );
 }
 
-function ToDoItem({title, description,completed, onCompleteChanged}: {
+function ToDoItem({title, description,completed, onCompleteChanged, onRemove}: {
   title:string; 
   description: string; 
   complete: boolean; 
-  onCompleteChanged: (newValue: boolean) => void;}){
+  onCompleteChanged: (newValue: boolean) => void;
+  onRemove: () => void;
+}){
     return (
-      <li className="flex gap-2 border rounded p-2">
+      <li className="w-full flex item center gap-2 border rounded p-2">
           <input 
           type="checkbox" 
           checked={completed} 
           onChange={e => onCompleteChanged(e.target.checked)}
         />
+        <div>
         <p className="font-semibold">{title}</p>
         <p className="text-sm text-grey-600">{description}</p>
+        </div>
+        <div className="ml-auto">
+          <button type="button" className="text-red-500" onClick={onRemove}>Remove</button>
+        </div>
         </li>
     )
   }

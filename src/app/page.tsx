@@ -24,6 +24,7 @@ export default function Home() {
       <ul className="space-y-2">
       {toDoList.map(({ title, description, completed }, index) => (
         <ToDoItem 
+          key={index}
           title={title} 
           description={description} 
           completed={completed}  

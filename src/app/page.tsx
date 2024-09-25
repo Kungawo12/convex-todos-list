@@ -59,7 +59,7 @@ export default function Home() {
 function ToDoItem({title, description,completed, onCompleteChanged, onRemove}: {
   title:string; 
   description: string; 
-  complete: boolean; 
+  completed: boolean; 
   onCompleteChanged: (newValue: boolean) => void;
   onRemove: () => void;
 }){
